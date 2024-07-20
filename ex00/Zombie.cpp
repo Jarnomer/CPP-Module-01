@@ -9,5 +9,5 @@ void Zombie::announce(void) {
 Zombie::Zombie(string name) { this->name = name; }
 
 Zombie::~Zombie(void) {
-  std::cout << this->name << " has been deleted" << std::endl;
+  std::cout << this->name << " has been destroyed" << std::endl;
 }
