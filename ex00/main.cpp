@@ -6,4 +6,5 @@ int main(void) {
   Zombie *z = newZombie("newZombie1");
   z->announce();
   delete z;
+  return 0;
 }
