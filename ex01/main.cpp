@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 int main(void) {
-  int n = 5;
+  static int n = 5;
 
   Zombie *horde = zombieHorde(n, "Zombie");
   for (int i = 0; i < n; i++) {
