@@ -5,8 +5,8 @@
 
 class HumanA {
 private:
-  Weapon &weapon;
   string name;
+  Weapon &weapon;
 
 public:
   HumanA(string name, Weapon &weapon);

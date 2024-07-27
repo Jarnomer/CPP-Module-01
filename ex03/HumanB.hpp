@@ -5,8 +5,8 @@
 
 class HumanB {
 private:
-  Weapon *weapon;
   string name;
+  Weapon *weapon;
 
 public:
   HumanB(string name);
