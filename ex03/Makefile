@@ -12,7 +12,10 @@ DBGFLAGS	=	-g -fsanitize=address
 DEPFLAGS	=	-c -MT $$@ -MMD -MP -MF \
 				$(DEPENDDIR)/$$*.d
 
-SOURCES		:=	main.cpp
+SOURCES		:=	main.cpp \
+				HumanA.cpp \
+				HumanB.cpp \
+				Weapon.cpp
 
 SRCS	:= $(foreach s, $(SOURCES), $(shell find . -name $(s)))
 OBJS	:= $(patsubst ./%.cpp, ./$(BUILDDIR)/%.o, $(SRCS))

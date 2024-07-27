@@ -9,8 +9,8 @@ private:
   string name;
 
 public:
+  HumanA(string name, Weapon &weapon);
   void attack(void);
-  HumanA(string name, class Weapon &weapon);
 };
 
 #endif
