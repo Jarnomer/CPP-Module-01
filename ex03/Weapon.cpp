@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(string type) { setType(type); }
+Weapon::Weapon(string type) : type(type) {}
 
 void Weapon::setType(string type) { this->type = type; }
 
