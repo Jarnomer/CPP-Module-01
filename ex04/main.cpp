@@ -13,7 +13,8 @@ int main(int argc, char **argv) {
     cout << "Usage: ./sed <filename> <s1> <s2>";
     return 1;
   }
-  create_testfile(argv[1]);
+  if ((string)argv[1] == "test")
+    create_testfile(argv[1]);
   Sed sed(argv[1], argv[2], argv[3]);
   sed.replace();
   return 0;

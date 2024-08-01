@@ -1,10 +1,8 @@
 #include "Sed.hpp"
-#include <cstring>
-#include <sstream>
 
 void Sed::replace() {
-  std::stringstream input;
-  std::stringstream result;
+  stringstream input;
+  stringstream result;
   size_t next = 0;
   size_t prev = 0;
 
