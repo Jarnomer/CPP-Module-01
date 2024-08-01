@@ -9,33 +9,19 @@ void Harl::warning(void) { cout << "Example warning message" << endl; }
 void Harl::error(void) { cout << "Example error message" << endl; }
 
 void Harl::complain(string level) {
+  void (Harl::*log[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
   string levels[4] = {"DEBUG", "ERROR", "INFO", "WARNING"};
-  void (Harl::*log)(void) = nullptr;
-  int id = 0;
+  int i = 0;
 
-  for (id = 0; id < 4; id++) {
-    if (level == levels[id]) {
+  for (i = 0; i < 4; i++) {
+    if (level == levels[i]) {
       break;
     }
   }
   cout << level << endl;
-  switch (id) {
-  case 0:
-    log = &Harl::debug;
-    break;
-  case 1:
-    log = &Harl::error;
-    break;
-  case 2:
-    log = &Harl::info;
-    break;
-  case 3:
-    log = &Harl::warning;
-    break;
-  default:
+  if (i < 4) {
+    (this->*log[i])();
+  } else {
     cout << "Invalid level" << endl;
-  };
-  if (log) {
-    (this->*log)();
   }
 }
