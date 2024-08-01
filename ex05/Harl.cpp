@@ -35,4 +35,7 @@ void Harl::complain(string level) {
   default:
     cout << "Invalid level" << endl;
   };
+  if (log) {
+    (this->*log)();
+  }
 }
