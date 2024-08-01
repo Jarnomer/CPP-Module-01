@@ -1,48 +1,36 @@
 #include "Harl.hpp"
 
-void Harl::debug(void) {
-  cout << "I love having extra bacon for my "
-          "7XL-double-cheese-triple-pickle-specialketchup burger. "
-          "I really do!" << endl;
-}
+void Harl::debug(void) { cout << "Example debug message" << endl; }
 
-void Harl::info(void) {
-  cout << "I cannot believe adding extra bacon costs more money." << endl
-       << "You didn't put enough bacon in my burger! If you did, I "
-          "wouldn't be asking for more!" << endl;
-}
+void Harl::info(void) { cout << "Example info message" << endl; }
 
-void Harl::warning(void) {
-  cout << "I think I deserve to have some extra bacon for free." << endl
-       << "I've been coming for years whereas you started working here "
-          "since last month." << endl;
-}
+void Harl::warning(void) { cout << "Example warning message" << endl; }
 
-void Harl::error(void) {
-  cout << "This is unacceptable! I want to speak to the manager now." << endl;
-}
+void Harl::error(void) { cout << "Example error message" << endl; }
 
 void Harl::complain(string level) {
   string levels[4] = {"DEBUG", "ERROR", "INFO", "WARNING"};
-  int i;
+  void (Harl::*log)(void) = nullptr;
+  int id = 0;
 
-  for (i = 0; i < 4; i++) {
-    if (level == levels[i]) {
+  for (id = 0; id < 4; id++) {
+    if (level == levels[id]) {
       break;
     }
   }
-  switch (i) {
+  cout << level << endl;
+  switch (id) {
   case 0:
-    debug();
+    log = &Harl::debug;
     break;
   case 1:
-    error();
+    log = &Harl::error;
     break;
   case 2:
-    info();
+    log = &Harl::info;
     break;
   case 3:
-    warning();
+    log = &Harl::warning;
     break;
   default:
     cout << "Invalid level" << endl;
