@@ -1,13 +1,7 @@
 #include "Zombie.hpp"
 
-#include <iostream>
-
-void Zombie::announce(void) {
-  std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
-}
+void Zombie::announce(void) { cout << name << " BraiiiiiiinnnzzzZ..." << endl; }
 
 void Zombie::set_name(string name) { this->name = name; }
 
-Zombie::~Zombie(void) {
-  std::cout << this->name << " has been destroyed" << std::endl;
-}
+Zombie::~Zombie(void) { cout << name << " has been destroyed" << endl; }
