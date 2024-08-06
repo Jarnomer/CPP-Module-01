@@ -15,14 +15,18 @@ void Sed::replace() {
   outfile << result.str();
 }
 
+static string outfile_name(string file, string extension) {
+  if (file.find_first_of(".")) {
+    return (file.substr(0, file.find_first_of(".")) + extension);
+  } else {
+    return (file + extension);
+  }
+}
+
 Sed::Sed(string file, string s1, string s2) : file(file), s1(s1), s2(s2) {
   string newFile;
 
-  if (file.find_first_of(".")) {
-    newFile = file.substr(0, file.find_first_of(".")) + ".replace";
-  } else {
-    newFile = file + ".replace";
-  }
+  newFile = outfile_name(file, ".replace");
   infile.open(file, std::fstream::in);
   if (infile.fail()) {
     cout << file << ": " << strerror(errno) << endl;
