@@ -16,21 +16,21 @@ void Sed::replace() {
 }
 
 Sed::Sed(string file, string s1, string s2) : file(file), s1(s1), s2(s2) {
-  string newfile;
+  string newFile;
 
   if (file.find_first_of(".")) {
-    newfile = file.substr(0, file.find_first_of(".")) + ".replace";
+    newFile = file.substr(0, file.find_first_of(".")) + ".replace";
   } else {
-    newfile = file + ".replace";
+    newFile = file + ".replace";
   }
   infile.open(file, std::fstream::in);
   if (infile.fail()) {
     cout << file << ": " << strerror(errno) << endl;
     return;
   }
-  outfile.open(newfile, std::fstream::out);
+  outfile.open(newFile, std::fstream::out);
   if (outfile.fail()) {
-    cout << newfile << ": " << strerror(errno) << endl;
+    cout << newFile << ": " << strerror(errno) << endl;
   }
 }
 
