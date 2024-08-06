@@ -1,6 +1,5 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include "Weapon.hpp"
 
 int main(void) {
   Weapon club1 = Weapon("crude spiked club");
