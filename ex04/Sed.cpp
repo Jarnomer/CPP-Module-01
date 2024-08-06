@@ -5,6 +5,7 @@ void Sed::replace() {
   stringstream result;
   size_t next = 0;
   size_t prev = 0;
+  int total_length;
 
   input << infile.rdbuf();
   while (next != string::npos) {
@@ -12,7 +13,8 @@ void Sed::replace() {
     result << input.str().substr(prev, next - prev) << s2;
     prev = next + s1.length();
   }
-  outfile << result.str();
+  total_length = result.str().length() - s2.length();
+  outfile << result.str().substr(0, total_length);
 }
 
 static string outfile_name(string file, string extension) {
