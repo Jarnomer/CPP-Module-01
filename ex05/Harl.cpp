@@ -18,7 +18,7 @@ void Harl::complain(string level) {
       (this->*log[i])();
       break;
     } else if (i == 3) {
-      cout << "Invalid level" << endl;
+      cout << "Invalid logging level" << endl;
       break;
     }
   }
