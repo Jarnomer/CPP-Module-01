@@ -8,7 +8,11 @@ void Sed::replace() {
   int total_length;
 
   input << infile.rdbuf();
-  while (next != string::npos) {
+  if (s1.empty()) {
+    outfile << input.str();
+    return;
+  }
+  while (next != string::npos && !s1.empty()) {
     next = input.str().find(s1, prev);
     result << input.str().substr(prev, next - prev) << s2;
     prev = next + s1.length();

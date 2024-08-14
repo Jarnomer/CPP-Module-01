@@ -2,7 +2,6 @@ NAME 		:=	sed
 BUILDLOG	:=	build.log
 BUILDDIR	:=	build
 DEPENDDIR	:=	.deps
-TESTFILE	:=	test
 
 RM			:=	rm -rf
 SCREENCLEAR	:=	printf "\033c"
@@ -31,17 +30,15 @@ debug: re
 
 run: all
 	@$(SCREENCLEAR)
-	@./$(NAME) $(TESTFILE) aa xx
+	@./$(NAME) main.cpp int ZZZ && cat main.replace
 
 clean:
 	@printf "$(R)$(B)Delete: $(T)$(Y)$(DEPENDDIR) $(BUILDDIR) $(BUILDLOG)$(T)\n"
 	@$(RM) $(DEPENDDIR) $(BUILDDIR)  $(BUILDLOG)
-	@printf "$(R)$(B)Delete: $(T)$(Y)$(TESTFILE) $(TESTFILE).replace$(T)\n"
-	@$(RM) $(TESTFILE) $(TESTFILE).replace
 
 fclean: clean
-	@printf "$(R)$(B)Delete: $(T)$(Y)$(NAME)$(T)\n"
-	@$(RM) $(NAME)
+	@printf "$(R)$(B)Delete: $(T)$(Y)$(NAME) *.replace$(T)\n"
+	@$(RM) $(NAME) *.replace
 
 .PHONY: all re
 .PHONY: clean fclean
