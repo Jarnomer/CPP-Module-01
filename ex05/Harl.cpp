@@ -12,7 +12,7 @@ void Harl::complain(string level) {
   void (Harl::*log[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
   string levels[4] = {"DEBUG", "ERROR", "INFO", "WARNING"};
 
-  cout << level << endl;
+  cout << "[ " << level << " ]" << endl;
   for (int i = 0; i < 4; i++) {
     if (level == levels[i]) {
       (this->*log[i])();
